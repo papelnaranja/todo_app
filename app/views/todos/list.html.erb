@@ -1,0 +1,22 @@
+<h2>Lista de tareas</h2>
+<div class="row">
+    <div class="col-md-6">
+        <%  @todos.each do |todo| %>
+            <% if todo.completed == false %>
+              <div class="well">
+                <p><%= todo.description %> - <span style="color:red;">Incompleto</span></p>
+              </div>
+            <% end %>
+        <% end %>
+    </div>
+    <div class="col-md-6">
+        <%  @todos.each do |todo| %>
+            <% if todo.completed == true %>
+              <div class="well">
+                <p><%= todo.description %> - <span style="color:green;">Completado</span></p>
+              </div>
+            <% end %>
+        <% end %>
+    </div>
+
+</div>

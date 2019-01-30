@@ -8,7 +8,6 @@ class TodosController < ApplicationController
     def create
         @todo = Todo.new(todo_params)
         @todo.save
-        
         redirect_to todos_path
     end
     def show
@@ -32,6 +31,9 @@ class TodosController < ApplicationController
         @todo.completed = true
         @todo.save
         redirect_to todos_path
+    end
+    def list
+        @todos = Todo.all
     end
     private
     def todo_params
