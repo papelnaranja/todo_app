@@ -3,23 +3,38 @@
 <%= link_to('Nueva Tarea', todos_new_path, class:'btn btn-primary') %>
 <br>
 <br>
+<div class="row">
+<div class="col-md-5">
 <% @todos.each do |todo| %>
     <div class="well">
-    <%= todo.description %>
-    <%  if todo.completed == true %>
-        <span style="color:green;">Completado</span>
-    <% else %>
-        <span style="color:red;">Incompleto</span>
-    <% end %>
-    <%# link_to('Completada', "#{todos_path}/#{todo.id}/complete"  ) %>
-    <% link_to('Completada', todos_completed_path(:id)  ) %>
+        <div class="row flex-box">
+            <div class="col-md-8">
+                <p class="description"><%= todo.description %></p>
+                <p class="text"><%= check_if_completed(todo) %></p>
+                    <%  if todo.completed == true %>
+                        <p class="status" style="color:green;"> Completado</p>
+                    <% else %>
+                        <p class="status"  style="color:red;">Incompleto</p>
+                    <% end %>
+                <ul class="rest-link">
+                    <li><%= link_to('Ver', todo ) %></li>
+                    <li><%= link_to('Editar', todos_edit_path(todo.id)  ) %></li>
+                    <li><%= link_to('Borrar', todo, method: :delete, style:'color:red;') %></li>
+                </ul>
+                
+                
+                
+            </div>
+            <div class="col-md-4 btn-container">
+                <%= link_to('Completar', todos_completed_path(todo.id), class:'btn btn-success' ) %>
+            </div>
 
-    <%= link_to('Ver', todo ) %>
-    <%# link_to('Editar', "#{todos_path}/#{todo.id}/edit"  ) %>
-    <%= link_to('Editar', todos_edit_path(:id)  ) %>
+        </div>
 
-    <%= link_to('Borrar', todo, method: :delete, style:'color:red;') %>
+
 
     </div>
-<% end %>
 
+<% end %>
+</div>
+</div>

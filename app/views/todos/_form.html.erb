@@ -1,7 +1,16 @@
-<%= form_with(model: @todo,  local: true) do |f| %>
-    <%= f.label :description, "Descripcion de la tarea" %>
-    <%= f.text_field :description %>
-    <%= f.label :completed, "¿Tarea realizada?" %>
-    <%= f.check_box :completed %>
-    <%= f.submit "Enviar" %>
-<% end %>
+<div class="row">
+    <div class="col-md-4">
+    <%= form_with(model: @todo,  local: true, class:'') do |f| %>
+
+            <div class=" form-group">
+                <%= f.label :description, "Descripcion de la tarea" %>
+                <%= f.text_field :description , class:'form-control'%>
+            </div>
+            <div class="form-group">
+                <%= f.check_box :completed %>
+                <%= f.label :completed, "¿Tarea realizada?" %>
+            </div>   
+            <%= f.submit "Enviar", class:'btn btn-primary' %>
+    <% end %>
+    </div>
+</div>
