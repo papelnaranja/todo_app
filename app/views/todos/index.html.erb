@@ -11,9 +11,10 @@
     <% else %>
         <span style="color:red;">Incompleto</span>
     <% end %>
+    <%= link_to('Completada', "#{todos_path}/#{todo.id}/complete"  ) %>
     <%= link_to('Ver', todo ) %>
     <%= link_to('Editar', "#{todos_path}/#{todo.id}/edit"  ) %>
-    <%= link_to('Borrar', todo, method: :delete) %>
+    <%= link_to('Borrar', todo, method: :delete, style:'color:red;') %>
 
     </div>
 <% end %>
