@@ -4,6 +4,9 @@
     <div class="well">
     <%= todo.description %>
     <%= todo.completed %>
+    <%= link_to('Ver', todo ) %>
+    <%= link_to('Editar', "#{todos_path}/#{todo.id}/edit"  ) %>
+
     </div>
 <% end %>
 <%= link_to('Nueva Tarea', todos_new_path, class:'btn btn-primary') %>
