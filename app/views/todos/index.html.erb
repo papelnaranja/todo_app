@@ -1,12 +1,20 @@
 
 <h1>Lista de tareas</h1>
+<%= link_to('Nueva Tarea', todos_new_path, class:'btn btn-primary') %>
+<br>
+<br>
 <% @todos.each do |todo| %>
     <div class="well">
     <%= todo.description %>
-    <%= todo.completed %>
+    <%  if todo.completed == true %>
+        <span style="color:green;">Completado</span>
+    <% else %>
+        <span style="color:red;">Incompleto</span>
+    <% end %>
     <%= link_to('Ver', todo ) %>
     <%= link_to('Editar', "#{todos_path}/#{todo.id}/edit"  ) %>
+    <%= link_to('Borrar', todo, method: :delete) %>
 
     </div>
 <% end %>
-<%= link_to('Nueva Tarea', todos_new_path, class:'btn btn-primary') %>
+
