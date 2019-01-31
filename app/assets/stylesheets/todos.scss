@@ -41,3 +41,9 @@ ul, li {
         content:'';
     }
 }
+.green {color:green;}
+.red {color: red;}
+
+.pointer > * {
+    cursor: pointer;
+}

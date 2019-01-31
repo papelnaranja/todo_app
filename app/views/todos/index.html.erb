@@ -10,23 +10,18 @@
         <div class="row flex-box">
             <div class="col-md-8">
                 <p class="description"><%= todo.description %></p>
-                <p class="text"><%= check_if_completed(todo) %></p>
-                    <%  if todo.completed == true %>
-                        <p class="status" style="color:green;"> Completado</p>
-                    <% else %>
-                        <p class="status"  style="color:red;">Incompleto</p>
-                    <% end %>
+                <p class="status <%= check_if_completed(todo)[0]  %> "><%= check_if_completed(todo)[1] %></p>
+
                 <ul class="rest-link">
                     <li><%= link_to('Ver', todo ) %></li>
                     <li><%= link_to('Editar', todos_edit_path(todo.id)  ) %></li>
                     <li><%= link_to('Borrar', todo, method: :delete, style:'color:red;') %></li>
                 </ul>
                 
-                
-                
+            
             </div>
             <div class="col-md-4 btn-container">
-                <%= link_to('Completar', todos_completed_path(todo.id), class:'btn btn-success' ) %>
+                <%= link_to('Completar', todos_completed_path(todo.id), class:'btn btn-success', disabled: check_if_completed(todo)[2] ) %>
             </div>
 
         </div>

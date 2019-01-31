@@ -1,10 +1,11 @@
 module ApplicationHelper
 
     def check_if_completed(obj)
+        status = []
         if obj.completed == true
-            'si'
+            status = ['green', 'Completado', 'disabled']
         else
-            'no'
+            status = ['red', 'Pendiente',nil]
         end
     end
 

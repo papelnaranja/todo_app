@@ -1,8 +1,7 @@
-<h1>Detalle de tarea</h1>
-
-<h5><%= @todo.description  %></h5>
-<%  if @todo.completed == true %>
-    <span style="color:green;">Completado</span>
-<% else %>
-    <span style="color:red;">Incompleto</span>
-<% end %>
+<h3>Detalle de tarea</h3>
+<br>
+<br>
+<div class="well">
+    <h5 class="description"><%= @todo.description  %></h5>
+    <p class="status <%= check_if_completed(@todo)[0] %>"> <%= check_if_completed(@todo)[1]   %> </p>
+</div>
